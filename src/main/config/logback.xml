@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+  <appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <append>false</append>
+    <file>logs/fibonacci-rest.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{0} - %X{CorrelationId}>%X{TaskId} %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="com.emc.fibonacci" level="DEBUG" additivity="false">
+    <appender-ref ref="File"/>
+  </logger>
+
+  <root level="ALL">
+    <appender-ref ref="Console"/>
+    <appender-ref ref="File"/>
+  </root>
+</configuration>
