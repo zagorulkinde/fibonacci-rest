@@ -1,11 +1,19 @@
 package com.emc;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@SuppressWarnings("unused")
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/")
 public class Main {
-  public static void main(final String[] args) throws Exception {
-    ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+
+  @GET()
+  @Produces(MediaType.TEXT_PLAIN)
+  public String getIt() {
+    return "Got it!";
   }
+
+
 }
