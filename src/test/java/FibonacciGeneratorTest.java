@@ -26,6 +26,6 @@ public class FibonacciGeneratorTest {
 
   @Test
   public void testEvaluated() {
-    // TODO
+
   }
 }
