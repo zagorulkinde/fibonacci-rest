@@ -4,8 +4,17 @@
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean name="fib" class="com.emc.fibonacci.FibonacciGenerator"/>
+    <bean name="uri" class="javax.ws.rs.core.UriBuilder" factory-method="fromUri">
+        <constructor-arg name="uri" value="${url}:${port}"/>
+    </bean>
 
+    <bean name="resources" class="org.glassfish.jersey.server.ResourceConfig"/>
 
+    <bean name="fib" class="com.emc.fibonacci.service.FibonacciService"/>
+
+    <bean name="server" class="org.glassfish.jersey.jetty.JettyHttpContainerFactory" factory-method="createServer">
+        <constructor-arg name="uri" value="#{uri.build()}"/>
+        <constructor-arg name="config" value="#{resources.register(fib)}"/>
+    </bean>
 
 </beans>
