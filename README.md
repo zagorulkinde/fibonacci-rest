@@ -8,4 +8,4 @@ required: java 8, maven, git, unix
 4. tar -xvf rest-service-1.0-SNAPSHOT-bin.tar.gz
 5. cd bin
 6. ./service
-7 curl localhost:9989/3
+7. curl localhost:9989/3
