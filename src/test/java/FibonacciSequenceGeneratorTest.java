@@ -38,7 +38,7 @@ public class FibonacciSequenceGeneratorTest {
         assertEquals(fibonacciSequenceGenerator.compute(3), asList(0L, 1L, 1L));
 
         verify(readLock, times(3)).lock();
-        verify(writeLock, times(1)).lock();
+        verify(writeLock, times(2)).lock();
 
     }
 

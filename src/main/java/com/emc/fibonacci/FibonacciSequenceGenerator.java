@@ -25,8 +25,16 @@ public class FibonacciSequenceGenerator {
     }
 
     private void fillInitialData() {
-        this.computedNumbers.add(0L);
-        this.computedNumbers.add(1L);
+        writeLock.lock();
+        try {
+            if (computedNumbers.isEmpty()) {
+                this.computedNumbers.add(0L);
+                this.computedNumbers.add(1L);
+            }
+
+        } finally {
+            writeLock.unlock();
+        }
     }
 
     private Collection<Long> truncate(final long number) {
@@ -40,10 +48,10 @@ public class FibonacciSequenceGenerator {
                 logger.info("{} sequence exists in accumulator", number);
                 return truncate(number);
             }
+
         } finally {
             readLock.unlock();
         }
-
         return updateSequence(number);
     }
 
