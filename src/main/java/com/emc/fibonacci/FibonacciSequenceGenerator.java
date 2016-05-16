@@ -43,7 +43,7 @@ public class FibonacciSequenceGenerator {
     public Collection<Long> updateSequence(long number) {
         long fiboNumber1, fiboNumber2;
 
-        for (long i = 2; i <= number; ++i) {
+        for (long i = 3; i <= number; ++i) {
             fiboNumber1 = computedNumbers.get(computedNumbers.size() - 2);
             fiboNumber2 = computedNumbers.get(computedNumbers.size() - 1);
 
