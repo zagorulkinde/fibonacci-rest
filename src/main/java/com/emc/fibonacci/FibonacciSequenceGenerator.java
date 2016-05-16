@@ -17,10 +17,6 @@ public class FibonacciSequenceGenerator {
         fillInitialData();
     }
 
-    public void setAccumulator(List<Long> computedNumbers) {
-        this.computedNumbers = computedNumbers;
-    }
-
     private void fillInitialData() {
         this.computedNumbers.add(0L);
         this.computedNumbers.add(1L);
@@ -31,7 +27,6 @@ public class FibonacciSequenceGenerator {
     }
 
     public Collection<Long> compute(long number) {
-
         if (computedNumbers.size() >= (number)) {
             logger.info("{} sequence exists in accumulator", number);
             return truncate(number);
