@@ -60,13 +60,11 @@ public class FibonacciSequenceGenerator {
         try {
             long fiboNumber1, fiboNumber2;
 
-            for (long i = 3; i <= number; ++i) {
+            for (long i = computedNumbers.size(); i <= number; ++i) {
                 fiboNumber1 = computedNumbers.get(computedNumbers.size() - 2);
                 fiboNumber2 = computedNumbers.get(computedNumbers.size() - 1);
-
                 long fibonacci = fiboNumber1 + fiboNumber2;
                 logger.info("{} fibonacci number added in accumulator", fibonacci);
-
                 computedNumbers.add(fibonacci);
             }
 
